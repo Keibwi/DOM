@@ -1,6 +1,3 @@
-//DEPENDENCIAS
-import {user_ob} from './user.js';
-
 //DATA
 let user = [
     [100,	'anna0',	    'white00',	    'Anna Addison',	    '1325 Candy Rd, San Francisco, CA 96123',	'anna.addison@yahoo.com',	3841019535],
@@ -13,38 +10,39 @@ let user = [
     [106,	'jefuentes',    'gatitos123',   'Jossue Fuentes',   'Colegio Santa Catalina SCL',	            'jefuentes@scl.edu.gt', 	4568443548]
 ]
 
-
 //ELEMENTOS DEL DOM
-let caja_texto = document.querySelector('#caja_texto');
-let caja_usuario = document.querySelector("#root");
+let caja_texto = document.getElementById("caja_texto");
+let caja_usuario = document.getElementById("root");
 
 //BOTONES
-let bt_siguiente = document.querySelector("bt_siguiente"); 
-let bt_anterior = document.getElementById("bt_anterior");
+let boton_siguiente = document.getElementById("bt_siguiente"); 
+let boton_anterior = document.getElementById("bt_anterior");
 let bt_user = document.getElementById("bt_user");
 
 //USUARIO ACTUALO
 let nameUser = 0;
-caja_texto.innerHTML = user[0][1]
+caja_texto.innerHTML = user[nameUser][1]
 
 //FUNCIONES
-function boton_siguiente(){
+function siguiente(){
     if(nameUser <=6){
         nameUser++;
         caja_texto.innerHTML = user[nameUser][1];
     }
 }
-function boton_anterior(){
+function anterior(){
     if(nameUser >=1){
         nameUser--;
         caja_texto.innerHTML = user[nameUser][1];
     }
 }
-
 //EVENTOS
-bt_siguiente.addEventListener('click',boton_siguiente);
-boton_anterior.addEventListener('click',boton_anterior);
+boton_siguiente.addEventListener('click', siguiente);
+boton_anterior.addEventListener('click', anterior);
 
 //INERT HTML ROOT
-caja_usuario.innerHTML = '<h1>' + user_ob[0].name + '</h1>'
-
+import {user_ob} from './user.js'
+function ver(){
+    caja_usuario.innerHTML = '<h1>' + user_ob[nameUser].name + '</h1>'
+}
+bt_user.addEventListener('click', ver);
