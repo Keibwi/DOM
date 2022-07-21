@@ -43,6 +43,11 @@ boton_anterior.addEventListener('click', anterior);
 //INERT HTML ROOT
 import {user_ob} from './user.js'
 function ver(){
-    caja_usuario.innerHTML = '<h1>' + user_ob[nameUser].name + '</h1>'
+    caja_usuario.innerHTML = '<h1>' + user_ob[nameUser].id + '</h1>'+
+    '<h1>' + user_ob[nameUser].nikname + '</h1>'+
+    '<h1>' + user_ob[nameUser].adress + '</h1>'+
+    '<h1>' + user_ob[nameUser].name + '</h1>'+
+    '<h1>' + user_ob[nameUser].email + '</h1>'+
+    '<h1>' + user_ob[nameUser].phone + '</h1>';
 }
 bt_user.addEventListener('click', ver);
